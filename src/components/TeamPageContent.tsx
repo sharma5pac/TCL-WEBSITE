@@ -1,70 +1,64 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Mail, Twitter, Github } from 'lucide-react';
+import { Linkedin, Mail, PhoneOutgoing } from 'lucide-react';
 import PageHero from './PageHero';
 import SpotlightCard from './SpotlightCard';
 
 const team = [
     {
-        name: "Mwanje Joseph",
+        name: "Michael Rwakaigamba",
         role: "Sales Manager",
         description: "Leads and motivates the sales team, sets sales targets, develops strategies, and ensures goals are met.",
-        social: { linkedin: "#", twitter: "#", email: "mailto:joseph@techcrunchlimited.com" }
+        social: { linkedin: "#", phone: "#", email: "mailto:michael@techcrunchlimited.com" }
     },
     {
         name: "Haboya Emmanuel",
         role: "Technical Advisor",
         description: "Provides expert guidance on technical products or services, helping clients or teams solve problems and make informed decisions.",
-        social: { linkedin: "#", github: "#", email: "mailto:emmanuel@techcrunchlimited.com" }
+        social: { linkedin: "#", phone: "#", email: "mailto:emmanuel@techcrunchlimited.com" }
     },
     {
         name: "Kellen Muhoozi",
         role: "Finance And Operations",
         description: "Manages budgets, expenses, and company resources while overseeing daily operations to ensure smooth business performance.",
-        social: { linkedin: "#", twitter: "#", email: "mailto:kellen@techcrunchlimited.com" }
+        social: { linkedin: "#", phone: "#", email: "mailto:kellen@techcrunchlimited.com" }
     },
     {
         name: "Aaron Kamanzi",
         role: "Project Coordinator",
         description: "Organizes and tracks project timelines, coordinates team activities, and ensures resources are available for successful completion.",
-        social: { linkedin: "#", twitter: "#", email: "mailto:aaron@techcrunchlimited.com" }
-    },
-    {
-        name: "Isaac Blades Kasende",
-        role: "Sales Representative",
-        description: "Identifies potential customers, presents products or services, and closes sales to achieve personal and team targets.",
-        social: { linkedin: "#", twitter: "#", email: "mailto:isaac@techcrunchlimited.com" }
-    },
-    {
-        name: "Sherwin Asingwire",
-        role: "Sales Representative",
-        description: "Builds relationships with clients, understands their needs, and recommends solutions to drive revenue growth.",
-        social: { linkedin: "#", twitter: "#", email: "mailto:sherwin@techcrunchlimited.com" }
+        social: { linkedin: "#", phone: "#", email: "mailto:aaron@techcrunchlimited.com" }
     },
     {
         name: "Mercyline Nafula",
         role: "IT Specialist",
         description: "Maintains and supports computer systems and networks, troubleshooting technical issues to ensure operational efficiency.",
-        social: { linkedin: "#", github: "#", email: "mailto:mercyline@techcrunchlimited.com" }
-    },
-    {
-        name: "Happy Kutentsa",
-        role: "Sales Representative",
-        description: "Engages with prospects, handles inquiries, and maintains a pipeline of opportunities to support business expansion.",
-        social: { linkedin: "#", twitter: "#", email: "mailto:happy@techcrunchlimited.com" }
-    },
-    {
-        name: "Daphine Kansime",
-        role: "Sales Representative",
-        description: "Delivers presentations to potential clients and negotiates contracts to secure new business deals.",
-        social: { linkedin: "#", twitter: "#", email: "mailto:daphine@techcrunchlimited.com" }
+        social: { linkedin: "#", phone: "#", email: "mailto:mercyline@techcrunchlimited.com" }
     },
     {
         name: "Emunot Sharma Emmanuel",
         role: "Software Engineer",
         description: "Designs, develops, and maintains software applications, ensuring high performance and responsiveness.",
-        social: { linkedin: "#", github: "#", email: "mailto:emunot@techcrunchlimited.com" }
+        social: { linkedin: "#", phone: "#", email: "mailto:emunotsharma@gmail.com" }
+    },
+    {
+        name: "Isaac Blades Kasende",
+        role: "Sales Representative",
+        description: "Identifies potential customers, presents products or services, and closes sales to achieve personal and team targets.",
+        social: { linkedin: "#", phone: "#", email: "mailto:isaac@techcrunchlimited.com" }
+    },
+    {
+        name: "Sherwin Asingwire",
+        role: "Sales Representative",
+        description: "Builds relationships with clients, understands their needs, and recommends solutions to drive revenue growth.",
+        social: { linkedin: "#", phone: "#", email: "mailto:sherwin@techcrunchlimited.com" }
+    },
+    {
+        name: "Happy Kutentsa",
+        role: "Sales Representative",
+        description: "Engages with prospects, handles inquiries, and maintains a pipeline of opportunities to support business expansion.",
+        social: { linkedin: "#", phone: "#", email: "mailto:happy@techcrunchlimited.com" }
     },
 ];
 
@@ -117,16 +111,12 @@ export default function TeamPageContent() {
                                                 <Linkedin className="w-5 h-5" />
                                             </a>
                                         )}
-                                        {member.social.twitter && (
-                                            <a href={member.social.twitter} className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
-                                                <Twitter className="w-5 h-5" />
+                                        {member.social.phone && (
+                                            <a href={member.social.phone} className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
+                                                <PhoneOutgoing className="w-5 h-5" />
                                             </a>
                                         )}
-                                        {member.social.github && (
-                                            <a href={member.social.github} className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
-                                                <Github className="w-5 h-5" />
-                                            </a>
-                                        )}
+
                                         {member.social.email && (
                                             <a href={member.social.email} className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
                                                 <Mail className="w-5 h-5" />
