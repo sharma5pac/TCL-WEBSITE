@@ -1,0 +1,9 @@
+import Loader from "@/components/Loader";
+
+export default function Loading() {
+    return (
+        <div className="fixed inset-0 z-[100] bg-black flex items-center justify-center">
+            <Loader />
+        </div>
+    );
+}

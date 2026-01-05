@@ -1,0 +1,39 @@
+.card-spotlight {
+  position: relative;
+  overflow: hidden;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --spotlight-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border by default */
+  border-radius: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.card-spotlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    var(--spotlight-color),
+    transparent 40%
+  );
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1; /* On top of background but behind content usually... wait */
+}
+
+/* Ensure content is above the sheen if needed, but usually spotlight is background-like */
+/* Actually, standard SpotlightCard often puts the gradient on a pseudo-element or uses it as a border glow */
+
+/* Let's try to make it a highlight OVER current background */
+.card-spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Content wrapper might be needed if text gets obscured, but with transparent spotlight it's fine */

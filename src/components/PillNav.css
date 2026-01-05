@@ -1,0 +1,96 @@
+/* PillNav.css */
+
+/* Variables are set inline by the component usually, but we define defaults here */
+:root {
+    --base: #fff;
+    --pill-bg: #060010;
+    --hover-text: #060010;
+    --pill-text: #fff;
+}
+
+.pill-nav-container {
+    position: relative;
+    /* ensure it sits on top */
+}
+
+/* Mobile Hamburger Styles */
+.mobile-menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+/* Reset for the bars since we style them inline with tailwind mostly but keeping for safety */
+.hamburger-line {
+    border-radius: 99px;
+    height: 2px;
+}
+
+/* Mobile Menu Popover */
+.mobile-menu-popover {
+    visibility: hidden;
+    /* opacity and transform handled by GSAP */
+}
+
+/* Base Styles for the "Pill" effect (Generic, if we were using it for desktop too) */
+.pill-list {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    /* full pill */
+    text-decoration: none;
+    color: var(--pill-text);
+    background: transparent;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.pill.is-active,
+.pill:hover {
+    /* text color change handled by internal spans usually */
+}
+
+.hover-circle {
+    position: absolute;
+    background-color: var(--base);
+    /* The white expansion */
+    border-radius: 50%;
+    pointer-events: none;
+    /* Size and pos set by JS */
+}
+
+.label-stack {
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    z-index: 1;
+    /* Above circle */
+}
+
+.pill-label {
+    display: block;
+    color: var(--pill-text);
+    /* GSAP animates this up */
+}
+
+.pill-label-hover {
+    position: absolute;
+    color: var(--hover-text);
+    /* GSAP animates this up from bottom */
+}
