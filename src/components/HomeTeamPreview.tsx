@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const team = [
-    { name: "Mwanje Joseph", role: "Sales Manager" },
+    { name: "Michael Rwakaigamba", role: "Sales Manager" },
     { name: "Haboya Emmanuel", role: "Technical Advisor" },
 ];
 
