@@ -44,9 +44,9 @@ const PillNav = ({
     const tlRefs = useRef<(gsap.core.Timeline | null)[]>([]);
     const activeTweenRefs = useRef<(gsap.core.Tween | null)[]>([]);
 
-    const hamburgerRef = useRef(null);
-    const mobileMenuRef = useRef(null);
-    const navItemsRef = useRef(null);
+    const hamburgerRef = useRef<HTMLButtonElement>(null);
+    const mobileMenuRef = useRef<HTMLDivElement>(null);
+    const navItemsRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         circleRefs.current = circleRefs.current.slice(0, items.length);
@@ -143,7 +143,7 @@ const PillNav = ({
         const newState = !isMobileMenuOpen;
         setIsMobileMenuOpen(newState);
 
-        const hamburger = hamburgerRef.current as any;
+        const hamburger = hamburgerRef.current;
         const menu = mobileMenuRef.current;
 
         if (hamburger) {

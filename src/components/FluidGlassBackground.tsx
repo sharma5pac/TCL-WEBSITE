@@ -4,7 +4,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { MeshTransmissionMaterial, RoundedBox, Environment, Float } from '@react-three/drei';
 
 function GlassBar() {
-    const mesh = useRef(null);
+    const mesh = useRef<any>(null);
     const { width, height } = useThree((state) => state.viewport);
 
     return (
