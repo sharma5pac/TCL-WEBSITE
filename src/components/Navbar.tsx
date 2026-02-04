@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import FluidGlassBackground from './FluidGlassBackground';
 import PillNav from './PillNav';
 
@@ -35,8 +36,20 @@ export default function Navbar() {
                 {/* Content Layer */}
                 <div className="relative z-10 w-full h-full flex items-center justify-between px-8 md:px-12">
                     {/* Logo */}
-                    <Link href="/" className="text-2xl font-bold tracking-tighter text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
-                        TCL
+                    {/* Logo Area */}
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <div className="relative w-12 h-12 md:w-14 md:h-14 transition-transform duration-300 group-hover:scale-110">
+                            <Image
+                                src="/images/logo-tcl.svg"
+                                alt="TCL Logo"
+                                fill
+                                className="object-contain"
+                                priority
+                            />
+                        </div>
+                        <span className="text-2xl font-bold tracking-tighter text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] hidden lg:block">
+                            TCL
+                        </span>
                     </Link>
 
                     {/* Navigation Links */}

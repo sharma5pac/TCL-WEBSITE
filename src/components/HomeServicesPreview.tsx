@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Server, Monitor, Zap, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import ElectricBorder from './ElectricBorder';
 
 const services = [
@@ -10,19 +11,22 @@ const services = [
         title: "Network Infrastructure",
         description: "Design, implementation, and management of robust enterprise networks.",
         icon: Server,
-        color: "text-blue-400"
+        color: "text-blue-400",
+        image: "/images/network-admin.jpg"
     },
     {
-        title: "System Administration",
-        description: "Proactive management and configuration of your computer systems.",
-        icon: Monitor,
-        color: "text-purple-400"
+        title: "Home & Office Automation",
+        description: "Smart technologies to automate your environment for comfort and efficiency.",
+        icon: Zap,
+        color: "text-green-400",
+        image: "/images/home-office.jpg"
     },
     {
         title: "Electrical Installation",
         description: "Certified professional electrical setups for commercial and residential.",
         icon: Zap,
-        color: "text-yellow-400"
+        color: "text-yellow-400",
+        image: "/images/electrical-insta.jpg"
     },
 ];
 
@@ -54,16 +58,29 @@ export default function HomeServicesPreview() {
                         >
                             <Link href="/services" className="block h-full">
                                 <ElectricBorder color={index % 2 === 0 ? "#3b82f6" : "#8b5cf6"} style={{ height: '100%', borderRadius: 16 }}>
-                                    <div className="group relative p-8 rounded-2xl bg-[#0F121C] transition-all hover:shadow-2xl hover:shadow-blue-500/10 h-full flex flex-col items-center text-center">
-                                        <div className={`mb-6 p-4 rounded-xl bg-white/5 w-16 h-16 flex items-center justify-center ${service.color}`}>
-                                            <service.icon className="w-8 h-8" />
+                                    <div className="group relative rounded-2xl bg-[#0F121C] transition-all hover:shadow-2xl hover:shadow-blue-500/10 h-full flex flex-col overflow-hidden">
+                                        {service.image && (
+                                            <div className="relative w-full h-40 overflow-hidden">
+                                                <Image
+                                                    src={service.image}
+                                                    alt={service.title}
+                                                    fill
+                                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-[#0F121C] to-transparent" />
+                                            </div>
+                                        )}
+                                        <div className="p-8 flex flex-col items-center text-center">
+                                            <div className={`mb-6 p-4 rounded-xl bg-white/5 w-16 h-16 flex items-center justify-center ${service.color}`}>
+                                                <service.icon className="w-8 h-8" />
+                                            </div>
+                                            <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                                                {service.title}
+                                            </h3>
+                                            <p className="text-gray-400 leading-relaxed text-sm">
+                                                {service.description}
+                                            </p>
                                         </div>
-                                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                                            {service.title}
-                                        </h3>
-                                        <p className="text-gray-400 leading-relaxed text-sm">
-                                            {service.description}
-                                        </p>
                                     </div>
                                 </ElectricBorder>
                             </Link>

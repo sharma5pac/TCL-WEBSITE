@@ -43,7 +43,7 @@ export default function Footer() {
                             </li>
                             <li className="flex items-center gap-2">
                                 <Phone className="w-5 h-5 text-blue-400" />
-                                <span>+256 700 000 000</span>
+                                <span>+256 782 912385</span>
                             </li>
                             <li className="flex items-center gap-2">
                                 <Mail className="w-5 h-5 text-blue-400" />

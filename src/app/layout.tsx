@@ -25,6 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${outfit.variable} antialiased bg-black text-white flex flex-col min-h-screen`}
+        suppressHydrationWarning={true}
       >
         <AmbientBackground />
         <Navbar />

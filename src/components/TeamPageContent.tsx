@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, PhoneOutgoing } from 'lucide-react';
+import Image from 'next/image';
 import PageHero from './PageHero';
 import SpotlightCard from './SpotlightCard';
 
@@ -39,6 +40,7 @@ const team = [
     {
         name: "Emunot Sharma Emmanuel",
         role: "Software Engineer",
+        image: "/images/emmanuel.jpg",
         description: "Designs, develops, and maintains software applications, ensuring high performance and responsiveness.",
         social: { linkedin: "#", phone: "#", email: "mailto:emunotsharma@gmail.com" }
     },
@@ -85,12 +87,20 @@ export default function TeamPageContent() {
                                 <SpotlightCard className="h-full flex flex-col items-center text-center p-8 bg-[#0b0e14]/50 border-white/5 hover:border-blue-500/30 transition-all hover:transform hover:-translate-y-1 duration-300" spotlightColor="rgba(0, 229, 255, 0.1)">
                                     <div className="mb-6 relative z-10">
                                         <div className="w-40 h-40 bg-gray-800 rounded-lg overflow-hidden relative">
-                                            {/* Simplified Image Placeholder for now */}
-                                            <div className="absolute inset-0 bg-neutral-800 flex items-center justify-center">
-                                                <span className="text-4xl font-bold text-white/20">
-                                                    {member.name.split(' ').map(n => n[0]).join('')}
-                                                </span>
-                                            </div>
+                                            {member.image ? (
+                                                <Image
+                                                    src={member.image}
+                                                    alt={member.name}
+                                                    fill
+                                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                                />
+                                            ) : (
+                                                <div className="absolute inset-0 bg-neutral-800 flex items-center justify-center">
+                                                    <span className="text-4xl font-bold text-white/20">
+                                                        {member.name.split(' ').map(n => n[0]).join('')}
+                                                    </span>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
 

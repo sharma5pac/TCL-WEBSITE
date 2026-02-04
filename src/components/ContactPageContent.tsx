@@ -41,7 +41,7 @@ export default function ContactPageContent() {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-semibold text-white mb-2">Call Us</h3>
-                                        <p className="text-gray-400">+256 700 000 000</p>
+                                        <p className="text-gray-400">+256 782 912385</p>
                                         <p className="text-gray-500 text-sm mt-1">Support 24/7</p>
                                     </div>
                                 </div>

@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const team = [
     { name: "Kellen Muhoozi", role: "Finance And Operations" },
@@ -10,7 +11,7 @@ const team = [
     { name: "Mercyline Nafula", role: "IT Specialist" },
     { name: "Happy Kutentsa", role: "Sales Representative" },
     { name: "Daphine Kansime", role: "Sales Representative" },
-    { name: "Emunot Sharma Emmanuel", role: "Software Engineer" },
+    { name: "Emunot Sharma Emmanuel", role: "Software Engineer", image: "/images/emmanuel.jpg" },
 ];
 
 export default function Team() {
@@ -42,12 +43,20 @@ export default function Team() {
                             className="group relative overflow-hidden rounded-xl bg-black border border-white/10"
                         >
                             <div className="aspect-square bg-neutral-800 relative overflow-hidden">
-                                {/* Placeholder for real images - using a gradient or initials for now */}
-                                <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/40 to-purple-900/40 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
-                                    <span className="text-4xl font-bold text-white/20">
-                                        {member.name.split(' ').map(n => n[0]).join('')}
-                                    </span>
-                                </div>
+                                {member.image ? (
+                                    <Image
+                                        src={member.image}
+                                        alt={member.name}
+                                        fill
+                                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                    />
+                                ) : (
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/40 to-purple-900/40 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                                        <span className="text-4xl font-bold text-white/20">
+                                            {member.name.split(' ').map(n => n[0]).join('')}
+                                        </span>
+                                    </div>
+                                )}
                             </div>
                             <div className="p-6">
                                 <h3 className="text-lg font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">

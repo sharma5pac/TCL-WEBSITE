@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
+import Image from 'next/image';
 import PageHero from './PageHero';
 import ElectricBorder from './ElectricBorder';
 
@@ -10,7 +11,7 @@ const services = [
         title: "Network Infrastructure",
         description: "Robust network systems designed effectively. From structured cabling to enterprise-grade setups, we ensure speed and security.",
         features: ["Structured cabling", "Enterprise wireless", "Network security"],
-        image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?w=800&q=80", // Server/Data Center
+        image: "/images/network-admin.jpg",
         color: "from-blue-600 to-blue-900"
     },
     {
@@ -24,14 +25,14 @@ const services = [
         title: "Electrical Installation",
         description: "Reliable electrical works for homes and offices. We install and maintain wiring and energy-efficient power solutions.",
         features: ["Commercial wiring", "Power distribution", "Energy efficiency"],
-        image: "https://images.unsplash.com/photo-1621905251189-fc415343e8a7?w=800&q=80", // Electrician/Wiring
+        image: "/images/electrical-insta.jpg",
         color: "from-yellow-600 to-yellow-900"
     },
     {
         title: "Home & Office Automation",
         description: "Smart automation for your spaces. Lighting, climate control, and energy management for comfort and efficiency.",
         features: ["Smart lighting", "Climate control", "Energy management"],
-        image: "https://images.unsplash.com/photo-1558002038-1091a166111c?w=800&q=80", // Smart Home
+        image: "/images/home-office.jpg",
         color: "from-green-600 to-green-900"
     },
     {
@@ -78,9 +79,10 @@ export default function ServicesPageContent() {
                                             <div className={`absolute inset-0 bg-gradient-to-t from-[#0F121C] to-transparent z-10 opacity-90`} />
                                             <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-20 mix-blend-overlay z-10`} />
 
-                                            <img
+                                            <Image
                                                 src={service.image}
                                                 alt={service.title}
+                                                fill
                                                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                             />
                                         </div>
