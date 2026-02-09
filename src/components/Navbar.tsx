@@ -80,14 +80,31 @@ export default function Navbar() {
                 </div>
             </header>
 
-            {/* Mobile Navigation (PillNav) */}
-            <div className="md:hidden fixed top-0 w-full z-50 px-4 py-4 flex justify-end">
-                <div className="w-12"> {/* Container for just the button essentially */}
-                    <PillNav
-                        items={navLinks.map(l => ({ label: l.name, href: l.href }))}
-                        baseColor="#ffffff"
-                        pillColor="#000000"
-                    />
+            {/* Mobile Dynamic Island Navbar */}
+            <div className="md:hidden fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[85%] max-w-[320px]">
+                <div className="bg-black/80 backdrop-blur-xl border border-white/10 rounded-full px-5 py-3 flex items-center justify-between shadow-2xl shadow-blue-900/20">
+                    <Link href="/" className="flex items-center gap-3 group">
+                        <div className="relative w-8 h-8 transition-transform group-hover:scale-105">
+                            <Image
+                                src="/images/logo-tcl.svg"
+                                alt="TCL Logo"
+                                fill
+                                className="object-contain"
+                                priority
+                            />
+                        </div>
+                        <span className="text-white font-semibold tracking-tight text-sm sm:text-base whitespace-nowrap">Tech Crunch Ltd.</span>
+                    </Link>
+
+                    {/* Mobile Menu Trigger */}
+                    <div className="w-10 flex items-center justify-center">
+                        <PillNav
+                            items={navLinks.map(l => ({ label: l.name, href: l.href }))}
+                            baseColor="#ffffff"
+                            pillColor="#000000"
+                            className="!justify-end" // Force align right if needed
+                        />
+                    </div>
                 </div>
             </div>
         </>

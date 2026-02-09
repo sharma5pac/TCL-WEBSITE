@@ -17,12 +17,12 @@ export default function Home() {
         {/* Animated Background */}
         <DarkVeil />
 
-        <div className="container px-4 z-10 text-center">
+        <div className="container px-4 z-10 text-center pb-20 md:pb-0">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 tracking-tighter"
+            className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold text-white mb-6 md:mb-8 tracking-tighter"
           >
             Smart Technology. <br />
             <span className="text-blue-500">Reliable Solutions.</span>
@@ -32,7 +32,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-gray-400 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed"
           >
             We design clean, secure, and smooth experiences for web and mobile. Fast loading, pixel-perfect, and future friendly.
           </motion.p>
@@ -48,7 +48,7 @@ export default function Home() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            <Link href="/#contact" className="w-full sm:w-auto px-10 py-5 bg-transparent border border-white/20 hover:bg-white/10 text-white rounded-full text-lg font-semibold transition-all">
+            <Link href="/contact" className="w-full sm:w-auto px-10 py-5 bg-transparent border border-white/20 hover:bg-white/10 text-white rounded-full text-lg font-semibold transition-all">
               Contact Us
             </Link>
           </motion.div>

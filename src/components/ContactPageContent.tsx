@@ -84,29 +84,41 @@ export default function ContactPageContent() {
                             className="bg-white/5 border border-white/10 p-8 rounded-3xl"
                         >
                             <h3 className="text-2xl font-bold text-white mb-6">Send us a message</h3>
-                            <form className="space-y-6">
+                            <form className="space-y-6" onSubmit={(e) => {
+                                e.preventDefault();
+                                const formData = new FormData(e.currentTarget);
+                                const firstName = formData.get('firstName');
+                                const lastName = formData.get('lastName');
+                                // const email = formData.get('email'); // Not needed for mailto body usually, but good to have
+                                const message = formData.get('message');
+
+                                const subject = `Contact from ${firstName} ${lastName}`;
+                                const body = `Name: ${firstName} ${lastName}\n\nMessage:\n${message}`;
+
+                                window.location.href = `mailto:info@techcrunchlimited.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                            }}>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
-                                        <label htmlFor="name" className="text-sm font-medium text-gray-400">First Name</label>
-                                        <input type="text" id="name" className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="John" />
+                                        <label htmlFor="firstName" className="text-sm font-medium text-gray-400">First Name</label>
+                                        <input name="firstName" type="text" id="firstName" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="John" />
                                     </div>
                                     <div className="space-y-2">
-                                        <label htmlFor="lastname" className="text-sm font-medium text-gray-400">Last Name</label>
-                                        <input type="text" id="lastname" className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Doe" />
+                                        <label htmlFor="lastName" className="text-sm font-medium text-gray-400">Last Name</label>
+                                        <input name="lastName" type="text" id="lastName" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Doe" />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
                                     <label htmlFor="email" className="text-sm font-medium text-gray-400">Email Address</label>
-                                    <input type="email" id="email" className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="john@example.com" />
+                                    <input name="email" type="email" id="email" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="john@example.com" />
                                 </div>
 
                                 <div className="space-y-2">
                                     <label htmlFor="message" className="text-sm font-medium text-gray-400">Message</label>
-                                    <textarea id="message" rows={4} className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors resize-none" placeholder="Tell us about your project..."></textarea>
+                                    <textarea name="message" id="message" rows={4} required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors resize-none" placeholder="Tell us about your project..."></textarea>
                                 </div>
 
-                                <button type="button" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2">
+                                <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer">
                                     Send Message
                                     <Send className="w-4 h-4" />
                                 </button>

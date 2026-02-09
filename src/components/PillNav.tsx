@@ -213,18 +213,18 @@ const PillNav = ({
                 </button>
             </nav>
 
-            {/* Mobile Menu Overlay */}
+            {/* Mobile Menu Dropdown (Compact) */}
             <div
-                className="mobile-menu-popover fixed inset-0 z-40 bg-black/95 flex items-center justify-center pointer-events-none md:hidden"
+                className="mobile-menu-popover fixed top-24 left-1/2 -translate-x-1/2 z-40 w-[85%] max-w-[320px] bg-black/90 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden flex flex-col shadow-2xl origin-top"
                 ref={mobileMenuRef}
                 style={cssVars}
             >
-                <ul className="mobile-menu-list flex flex-col items-center gap-6 pointer-events-auto">
+                <ul className="mobile-menu-list flex flex-col py-4 px-2">
                     {items.map((item, i) => (
-                        <li key={item.href || `mobile-item-${i}`}>
+                        <li key={item.href || `mobile-item-${i}`} className="w-full">
                             <Link
                                 href={item.href}
-                                className={`text-3xl font-bold tracking-tight transition-colors duration-300 ${activeHref === item.href ? 'text-blue-500' : 'text-white/70 hover:text-white'}`}
+                                className={`block w-full text-center py-3 text-lg font-medium transition-all duration-200 rounded-xl ${activeHref === item.href ? 'text-blue-400 bg-white/5' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}
                                 onClick={() => toggleMobileMenu()} // Close menu on click
                             >
                                 {item.label}
